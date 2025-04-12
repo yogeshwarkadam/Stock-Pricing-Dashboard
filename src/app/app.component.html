@@ -1,0 +1,94 @@
+<div class="main-div" *ngIf="!showDiv && !showChart">
+  <div class="sub-div">
+    <div class="d-flex justify-content-end gap-3">
+      <a routerLink="stock-list" (click)="toggleDiv()">Stock List</a>
+      <a routerLink="charts" (click)="toggleChart()">Charts</a>
+    </div>
+    <h1>Real Time Stock Exchange Dashboard</h1>
+    <div class="row bg-success-subtle rounded pb-2 pt-4 px-2">
+      <div class="col-md-6 col-12">
+        <div class="container mb-3 ps-0 pe-0">
+          <form class="d-flex gap-2" (submit)="addStock()">
+            <div class="input-group">
+              <input
+                type="text"
+                class="form-control"
+                placeholder="Add To Watchlist"
+                [(ngModel)]="newStockTicker"
+                name="stockTicker"
+                aria-label="Ticker Symbol"
+              />
+              <button type="submit" class="btn btn-primary">
+                <i class="bi bi-plus-lg"></i>
+              </button>
+            </div>
+          </form>
+        </div>
+
+        <div class="table-responsive rounded">
+          <table class="table table-hover align-middle scroll w-600-responsive">
+            <thead class="table-info">
+              <tr>
+                <th scope="col">Ticker</th>
+                <th scope="col">Company Name</th>
+                <th scope="col">Current Price</th>
+                <th scope="col">Change</th>
+                <th>Action</th>
+              </tr>
+            </thead>
+            <tbody class="cursor-pointer">
+              <tr
+                *ngFor="let stock of stockList; let i = index"
+                (click)="showStockData(stock.ticker)"
+              >
+                <td>
+                  <strong>{{ stock.ticker }}</strong>
+                </td>
+                <td>{{ stock.companyName }}</td>
+                <td>{{ stock.price }}</td>
+                <td
+                  [ngClass]="{
+                    'text-success': stock.change >= 0,
+                    'text-danger': stock.change < 0
+                  }"
+                >
+                  <span
+                    [ngStyle]="{ color: stock.change >= 0 ? 'green' : 'red' }"
+                  >
+                    {{ stock.change >= 0 ? "+" : "" }}{{ stock.change }} ({{
+                      80 >= 0 ? "" : ""
+                    }}{{ 80 }}%)
+                  </span>
+                </td>
+                <td>
+                  <button
+                    class="btn btn-sm btn-danger"
+                    (click)="removeStock(i)"
+                  >
+                    <i class="bi bi-trash"></i>
+                  </button>
+                </td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+      <div class="col-md-6 col-12">
+        <div>
+          <div style="height: 400px">
+            <p-chart
+              type="line"
+              [data]="data"
+              [options]="options"
+              style="height: 100%; width: 100%"
+            />
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<div class="main-div">
+    <router-outlet  *ngIf="showDiv"></router-outlet>
+    <router-outlet   *ngIf="showChart"></router-outlet>
+</div>

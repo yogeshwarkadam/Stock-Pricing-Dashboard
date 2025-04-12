@@ -1,0 +1,41 @@
+.main-div {
+  text-align: -webkit-center;
+}
+
+.sub-div {
+  height: 500px;
+  width: 80%;
+  border-radius: 10px;
+  text-align: center;
+  padding: 10px;
+}
+.cursor-pointer {
+  cursor: pointer;
+}
+
+@media (max-width: 767px) {
+  .w-600-responsive {
+    width: 600px !important;
+  }
+  .sub-div {
+    width: 100%;
+  }
+}
+@media (min-device-width: 768px) and (max-device-width: 1024px) {
+  .w-600-responsive {
+    width: 600px !important;
+  }
+}
+
+/* Force the chart wrapper to use full height */
+::ng-deep p-chart > div {
+  height: 100% !important;
+}
+
+/* Force the canvas to inherit that height */
+::ng-deep p-chart canvas {
+  height: 100% !important;
+  width: 100% !important;
+}
+
+
