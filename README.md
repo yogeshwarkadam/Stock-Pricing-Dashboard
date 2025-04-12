@@ -1,27 +1,23 @@
-# StokePricingDashboard
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 15.2.11.
 
-## Development server
+**Stock Price Dashboard - Key Features Overview**
+1) Stock Management via Input Form -
+Users can add new stocks to track using a dedicated input field embedded within a form. This makes it easy to expand the watchlist dynamically.
 
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The application will automatically reload if you change any of the source files.
+2) Routing for Component Navigation -
+The application leverages Angular routing to navigate between key components like the Stock List View and Map View, ensuring a smooth single-page experience.
 
-## Code scaffolding
+3) Add & Delete Stock Functionality -
+Users have full control over their stock list, with intuitive add and delete options to manage tracked stocks in real-time.
 
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
+4) Responsive UI with Bootstrap & Media Queries -
+The dashboard UI is built using Bootstrap for a clean, responsive layout. Additional media queries ensure optimal display across different screen sizes and devices.
 
-## Build
+5) Data Visualization with Charts -
+Stock trends and price movements are displayed using interactive chart components, making data analysis straightforward and visually engaging.
 
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory.
+6) Service Integration with Mock API -
+A dedicated service file handles data operations and API calls. A fake API is used for binding stock data, simulating real-time backend interaction.
 
-## Running unit tests
-
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
-
-## Running end-to-end tests
-
-Run `ng e2e` to execute the end-to-end tests via a platform of your choice. To use this command, you need to first add a package that implements end-to-end testing capabilities.
-
-## Further help
-
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI Overview and Command Reference](https://angular.io/cli) page.
+7) Interactive Map Component -
+A separate Map Component is integrated for geographical visualization or mapping functionalities related to stocks or markets.
